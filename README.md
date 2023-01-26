@@ -1,0 +1,2 @@
+# PostgreSQL_SpringBoot
+PostgreSQL is a popular open-source relational database management system (RDBMS) that can be used with the Spring Boot framework to build web applications. Spring Boot is a Java-based framework that makes it easy to create stand-alone, production-grade Spring-based applications. Together, PostgreSQL and Spring Boot can be used to create a robust and scalable web application.
