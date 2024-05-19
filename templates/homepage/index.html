@@ -1,0 +1,461 @@
+﻿
+{% extends "basic.html" %}
+{% load static %}
+
+ 
+	{% block head %}
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    
+<div class="jumbotron">
+    <h1 class="display-4">Be your own doctor...</h1>
+    <p class="lead">
+            It might have happened so many times that you or someone yours need doctor’s help immediately,
+             but they are not available due to some reasons.The Disease Classification system is an end user
+              support and online consultation project. Its a web application that allow users to get instant guidance on their disease through an intelligent system. The application is 
+              fed with various details and the disease associated with those details.The application allows
+               user to share their disease related issues.It then processes user specific details to check 
+               for various illness that could be associated with it.
+                Based on result, patient can contact doctor accordingly for further treatment.
+    
+                
+  
+     {% if user.is_authenticated %}
+
+     
+     {% else %}
+
+      <p class="lead">
+      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target=".bd-example-modal-lg">Get started</button>
+      </p>
+    
+
+</div>
+
+<br><br><br>
+<div class="container mt-5 mb-3" style="width:fit-content;">
+      <center>
+        <h1>Sign-In  As</h1>
+        </center>
+      
+      
+      <form>
+          <div class="container mt-5 mb-5">
+       <div class="row">
+          <div class="col">
+             <a href="{% url 'sign_in_admin' %}">
+      <img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_doctor' %}">
+      <img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_patient' %}">
+      <img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+      </a>
+          </div>
+        </div>
+        </div>
+      </form>
+</div>
+
+
+    
+
+    {% endif %}
+
+<br><br>
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-In As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5">
+ <div class="row">
+    <div class="col">
+       <a href="{% url 'sign_in_admin' %}">
+<img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-Up As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5 ml-5 mr-5">
+ <div class="row">
+
+    <div class="col">
+<a href="{% url 'signup_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'signup_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!--ABOUT US-->
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Source+Sans+Pro:wght@600&display=swap");
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Montserrat", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 900;
+  }
+  h5,
+  h6 {
+    font-weight: 200;
+  }
+  .center-vertical {
+    display: flex;
+    width: 100%;
+    min-height: 70vh;
+    align-items: center;
+  }
+  .about-us-section {
+    width: 100%;
+    padding: calc(2% + 35px) 0px;
+  }
+  .about-us-section .img-head {
+    position: relative;
+    overflow: hidden;
+  }
+  .about-us-section .img-head img {
+    width: 100%;
+    transition: transform 0.3s;
+  }
+  .about-us-section .img-head:hover img {
+    transform: scale(1.2);
+  }
+  .about-us-section .img-head::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right bottom, #19456b, #16c79a);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+  }
+  .about-us-section .text-head {
+    font-size: 23px;
+    color: #16c79a;
+  }
+  .about-us-section .break-small {
+    width: 80px;
+    height: 3px;
+    background-color: #16c79a;
+  }
+  .about-us-section .text-para {
+    font-size: 16px;
+    color: gray;
+  }
+  .about-us-section .box {
+    background-color: #19456b;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-us-section .box i {
+    font-size: 42px;
+  }
+  .about-us-section .box h4 {
+    font-size: 14px;
+  }
+  .about-us-section .box p {
+    font-size: 22px;
+  }
+  .about-us-section .box::after,
+  .about-us-section .box::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #fff5;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  .about-us-section .box::after {
+    left: -50px;
+    top: -50px;
+  }
+  .about-us-section .box::before {
+    right: -50px;
+    bottom: -50px;
+  }
+  .about-us-section .box:hover::after,
+  .about-us-section .box:hover::before {
+    transform: scale(1.2);
+  }
+</style>
+
+
+<div class="center-vertical bg-dark">
+  <div class="about-us-section bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+          <div class="img-head">
+            <img src="{% static  'homepage/index2.jpg'%}" alt="" />
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <h2 class="text-head">ABOUT US</h2>
+          <div class="break-small mb-2"></div>
+
+          <p class="text-para">
+            The importance of maintaining your health and wellbeing throughout
+            your lifetime by incorporating exercise, diet, preventative health
+            checks, sleep management, managing mental health issues, finding
+            ways to relax and unwind are all important aspects of our health and
+            wellbeing.
+          </p>
+
+          <h6 style="color: gray">What does general health mean?</h6>
+          <p class="text-para">
+            The state of health of body as a whole, or a community.
+          </p>
+          <h6 style="color: gray">What are the 5 types of health?</h6>
+
+          <p class="text-para">
+            There are five main aspects of personal health: physical, emotional,
+            social, spiritual, and intellectual.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<center><h2>Our Doctors</h2></center>
+<div class="row mt-5 mb-5" style="background-color:#d7dbd8">
+    <div class="col" style="background-color:#d7dbd8">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Dr. PARAG KARKI</h5>
+                <img  alt="admin" src="{% static 'homepage/c31.jpg' %}" width="200" height="150" class="rounded">
+                <p class="card-text">DM | Cardiology | NMC: 6611 | OPD Schedule: Sun - Fri: 6pm</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Dr.  AMIT SHRESTHA </h5>
+                <img  alt="admin" src="{% static 'homepage/c41.jpg' %}" width="200" height="150" class="rounded">
+                <p class="card-text">Consultant Hematologist | MBBS | MD | NMC: 4770 | Unit Chief</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">DR. Kabita Keyal</h5>
+                <img  alt="admin" src="{% static 'homepage/s72.jpg' %}" width="200" height="150" class="rounded">
+                <p class="card-text">Pediatrics | MBBS | MD | Manipal Hospital | Banglore | NMC: 4967.</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="services" class="" style="background-color:#d7dbd8" >
+  <div class="container text-center mt-5">
+      <div class="title ">
+          <h3>OUR FEATURES & SERVICES</h3>
+          <hr style="height: 3px; opacity: 1;" class="mx-auto">
+          <p>Here you can check out our services available.</p>
+       </div>
+       <div class="row align-items-center">
+          <div class="box">
+              <img src="{% static 'homepage/health.png'%}" height="100px" width="100px">
+              <div class="align-items-center">
+                  <h3>General Diseases Classification</h3>
+                  <p>Providing a number of general health related problem after prediction.</p>
+                </div>
+        </div>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+        <div class="box">
+              <img src="{% static 'homepage/doctor (2).png'%}" height="100px" width="100px">
+                  <h3>Specialist Doctor</h3>
+                  <p>Providing specialist doctor after a great verification <br> team.</p>
+          </div>
+      </div>
+  </div>
+
+</section>
+
+<section id="contact" class="" >
+<div class="container text-center mt-5">
+  <div class="title ">
+    <h3>CONTACT US</h3>
+    <hr style="height: 3px; opacity: 1;" class="mx-auto">
+    <p class="text-center">General health needs include health promotion, preventive care (immunization, general health screening), treatment of acute and chronic illness, and appropriate referral for more specialized needs where required.</p>
+ </div>
+ <class="row">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.317149370116!2d85.28484712210984!3d27.708954226754283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2044600!5e0!3m2!1sen!2snp!4v1697013748300!5m2!1sen!2snp" width="100%" height="250px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ </div>
+</div>
+
+</section>
+
+
+
+
+<section class="footer mt-5" id="footer" style="background-color: black; color:white;">
+  <div class="container py-4">
+    <div class="row py-5">
+      <div class="col-lg-4">
+        <h4>Disease Classification System</h4>
+        <p>Disease Classification system is an innovative technology that uses advanced algorithms and data analysis to predict and prevent potential health risks.</p>
+        <span class="social"><i class="fab fa-facebook"> </i></span>
+        <span class="social"><i class="fab fa-facebook-messenger px-2"> </i></span>
+        <span class="social"><i class="fab fa-google"> </i></span>
+        <span class="social"><i class="fab fa-pinterest px-2"> </i></span>
+      </div>
+      <div class="col-lg-3 offset col-md-3 col-sm-4 col-11 mb-2">
+        <h5 class="pb-4">QUICK LINKS</h5>
+        <a href="#" style="text-decoration:none"><p class="link"><span><i class="fas fa-angle-double-right"></i></span> Home</p></a>
+        <a href="#services" style="text-decoration:none"><p class="link"><span><i class="fas fa-angle-double-right"></i></span> Services</p></a>
+        <a href="#about" style="text-decoration:none"><p class="link"><span><i class="fas fa-angle-double-right"></i></span> About Us</p></a>
+        <a href="#contact" style="text-decoration:none"><p class="link"><span><i class="fas fa-angle-double-right"></i></span> Contact Us</p></a>
+
+      </div>
+      <div class="col-lg-4">
+        <h5 class="pb-4">LOCATION</h5>
+        <p>Kathmandu, Nepal</p>
+        <p class="link pt-3">+977 4-315046</p>
+        <p class="link">classifo@gmail.com</p>
+      </div>
+    </div>
+    <div class="row py-2">
+      <div class="col-lg-12">
+        <div class="card text-center py-2">
+          <p style="color:black">Classifo  ©   2023, Developed By <span>Ashish Poudel</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"
+></script>
+<script>
+  var nav = document.querySelector("nav");
+
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 100) {
+      nav.classList.add("bg-dark", "shadow");
+    } else {
+      nav.classList.remove("bg-dark", "shadow");
+    }
+  });
+</script>
+{% for i in messages %}
+<script>
+alert('{{i}}');
+</script>
+{% endfor %}
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+{% endblock %}
